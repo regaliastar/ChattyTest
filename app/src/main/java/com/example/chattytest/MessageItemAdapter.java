@@ -1,14 +1,12 @@
 package com.example.chattytest;
 
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
 import java.util.List;
-
 
 /**
  * Created by 艾德米 on 2018/3/12.
@@ -34,7 +32,7 @@ public class MessageItemAdapter extends RecyclerView.Adapter<MessageItemAdapter.
     @Override
     public void onBindViewHolder(MessageItemAdapter.VH holder, int position) {
         holder.strMsg.setText(mList.get(position).getStrMsg());
-        Log.d("position: ", String.valueOf(position));
+//        Log.d("position: ", String.valueOf(position));
     }
 
     @Override
@@ -50,5 +48,10 @@ public class MessageItemAdapter extends RecyclerView.Adapter<MessageItemAdapter.
 
             strMsg = itemView.findViewById(R.id.strMsg);
         }
+    }
+
+    public void add(MessageItem item) {
+        mList.add(mList.size(), item);
+        notifyItemInserted(mList.size());
     }
 }
