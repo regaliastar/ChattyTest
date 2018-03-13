@@ -94,7 +94,7 @@ public class ChatActivity extends AppCompatActivity {
             case "me":
                 Log.d("showMsg: ","case me");
                 mMessageItemAdapter.add(item);
-                
+
                 mRecyclerView.smoothScrollToPosition(mMessageItemAdapter.mList.size());
                 break;
             default:
