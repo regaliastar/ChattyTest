@@ -30,9 +30,14 @@ public class ChatActivity extends AppCompatActivity {
         send_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Log.d("点击发送","onClick -> sendMsg()");
+//                Log.d("点击发送","onClick -> sendMsg()");
                 sendMsg();
-
+                //测试
+                MessageItem item = new MessageItem();
+                item.setTAG(1);
+                item.setFromUserAvatar(R.mipmap.avatar_9);
+                item.setStrMsg("hello");
+                receiveMsg(item);
             }
         });
 
@@ -46,21 +51,22 @@ public class ChatActivity extends AppCompatActivity {
         RecyclerView.LayoutManager manager = new LinearLayoutManager(this);
         mRecyclerView.setLayoutManager(manager);
 
-        List<MessageItem> items = new ArrayList<>();
-        for (int i = 0; i < 10; i++) {
-            MessageItem item = new MessageItem();
-            String msg = "这是第"+i+"条信息";
-            item.setStrMsg(msg);
-            items.add(item);
-        }
+//        List<MessageItem> items = new ArrayList<>();
+//        for (int i = 0; i < 10; i++) {
+//            MessageItem item = new MessageItem();
+//            String msg = "这是第"+i+"条信息";
+//            item.setStrMsg(msg);
+//            item.setTAG(1);
+//            items.add(item);
+//        }
 //        Log.d("items.size():", String.valueOf(items.size()));
-        mRecyclerView.setAdapter(mMessageItemAdapter = new MessageItemAdapter(items));
-
+//        mRecyclerView.setAdapter(mMessageItemAdapter = new MessageItemAdapter(items));
+        mRecyclerView.setAdapter(mMessageItemAdapter = new MessageItemAdapter());
     }
 
     /**
      * 点击发送按钮后，发送信息
-     * 传递MessageItem到showMsg方法
+     * 将信息展示在界面上
      * */
     private void sendMsg(){
         MessageItem item = new MessageItem();
@@ -72,34 +78,24 @@ public class ChatActivity extends AppCompatActivity {
         // 设置 item 的属性：发送者、接受者、消息值
         item.setStrMsg(msg);
         item.setFromUser("me");
+        item.setFromUserAvatar(R.mipmap.avatar_10);
+        item.setTAG(0);
 
-        showMsg(item);
+        //show
+        mMessageItemAdapter.add(item);
+
+        mRecyclerView.smoothScrollToPosition(mMessageItemAdapter.mList.size());
     }
 
     /**
      * 从服务器接收到对方发送的信息
-     * 传递MessageItem到showMsg方法
-     * */
-    private void receiveMsg(MessageItem item){
-
-    }
-
-    /**
      * 将信息展示在界面上
      * */
-    private void showMsg(MessageItem item){
-        //登录的用户名应该从全局方法得到，这里只是为了测试
-        String LOGIN_USER = "me";
-        switch (item.getFromUser()){
-            case "me":
-                Log.d("showMsg: ","case me");
-                mMessageItemAdapter.add(item);
+    private void receiveMsg(MessageItem item){
+        mMessageItemAdapter.add(item);
 
-                mRecyclerView.smoothScrollToPosition(mMessageItemAdapter.mList.size());
-                break;
-            default:
-
-        }
+        mRecyclerView.smoothScrollToPosition(mMessageItemAdapter.mList.size());
     }
+
 
 }

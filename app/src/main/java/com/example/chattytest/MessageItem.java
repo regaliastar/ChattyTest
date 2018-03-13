@@ -8,44 +8,47 @@ import java.util.Date;
 
 public class MessageItem {
     private String fromUser;
-    private String fromUserAvatar;
+    private int fromUserAvatar;
     private String toUser;
-    private String toUserAvatar;
     private String strMsg;
     private Date date;
 
-    public MessageItem(String fromUser, String fromUserAvatar, String toUser, String toUserAvatar, String strMsg) {
+    private int TAG;
+
+    public MessageItem(String fromUser, int fromUserAvatar, String toUser, String toUserAvatar, String strMsg) {
         this.fromUser = fromUser;
         this.fromUserAvatar = fromUserAvatar;
         this.toUser = toUser;
-        this.toUserAvatar = toUserAvatar;
         this.strMsg = strMsg;
         this.date = new Date();
     }
 
     public MessageItem(){
         this.fromUser = "";
-        this.fromUserAvatar = "";
+        this.fromUserAvatar = 0;
         this.toUser = "";
-        this.toUserAvatar = "";
         this.strMsg = "";
         this.date = new Date();
     }
 
-    public String getFromUserAvatar() {
+    public int getTAG() {
+        return TAG;
+    }
+
+    /**
+     * 0:用户自己
+     * 1:对方
+     * */
+    public void setTAG(int TAG) {
+        this.TAG = TAG;
+    }
+
+    public int getFromUserAvatar() {
         return fromUserAvatar;
     }
 
-    public void setFromUserAvatar(String fromUserAvatar) {
+    public void setFromUserAvatar(int fromUserAvatar) {
         this.fromUserAvatar = fromUserAvatar;
-    }
-
-    public String getToUserAvatar() {
-        return toUserAvatar;
-    }
-
-    public void setToUserAvatar(String toUserAvatar) {
-        this.toUserAvatar = toUserAvatar;
     }
 
     public String getFromUser() {
