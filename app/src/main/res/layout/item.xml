@@ -41,7 +41,7 @@
                 android:layout_gravity="center_vertical"
                 android:layout_marginLeft="20dp"
                 android:background="@drawable/receive_msg_normal"
-                android:text="Uncle"/>
+                android:text="Hellooooooooooooo"/>
 
         </LinearLayout>
 
@@ -63,7 +63,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_toLeftOf="@id/send_avatar"
-                android:text="Hello"
+                android:text="Hellooooooooooooo"
                 android:gravity="center"
                 android:background="@drawable/send_msg_normal"
                 android:padding="5dp"/>

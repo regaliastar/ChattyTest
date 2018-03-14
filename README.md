@@ -4,10 +4,14 @@
 
 1. Recyclerview
 
-## screntshot
+## screenshot
 <p align="left">
 	<img src="book/screenshot.png"/ width="50%">
 </p>
+
+## TODO
+1. 消息列表
+2. 连接服务器
 
 ## Lencese
 

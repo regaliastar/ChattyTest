@@ -36,7 +36,7 @@ public class ChatActivity extends AppCompatActivity {
                 MessageItem item = new MessageItem();
                 item.setTAG(1);
                 item.setFromUserAvatar(R.mipmap.avatar_9);
-                item.setStrMsg("hello");
+                item.setStrMsg("hellooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo");
                 receiveMsg(item);
             }
         });
